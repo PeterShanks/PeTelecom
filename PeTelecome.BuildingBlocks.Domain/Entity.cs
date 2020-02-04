@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace PeTelecome.BuildingBlocks.Domain
 {
-    public class Entity
+    public abstract class Entity
     {
         private List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
 

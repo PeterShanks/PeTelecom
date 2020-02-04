@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace PeTelecome.BuildingBlocks.Domain
 {
@@ -22,8 +20,8 @@ namespace PeTelecome.BuildingBlocks.Domain
         public override bool Equals(object obj)
         {
             // If i call obj == null that would make it recursive and blow a stack overflow exception
-            if (ReferenceEquals(null, obj))
-                return false;
+            //if (ReferenceEquals(null, obj))
+            //    return false;
 
             return obj is TypedIdValueBase other && Equals(other);
         }

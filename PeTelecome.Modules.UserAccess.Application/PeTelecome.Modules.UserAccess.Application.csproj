@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PeTelecome.BuildingBlocks.Application\PeTelecome.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\PeTelecome.Modules.UserAccess.Domain\PeTelecome.Modules.UserAccess.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+</Project>
