@@ -5,7 +5,7 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations.Events
 {
     public class NewUserRegisteredDomainEvent: DomainEventBase
     {
-        public UserRegistrationId Id { get; }
+        public UserRegistrationId UserRegistrationId { get; }
         public string Login { get; }
         public string Password { get; }
         public string Email { get; }
@@ -15,7 +15,7 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations.Events
         public DateTime RegisterDate { get; }
 
         public NewUserRegisteredDomainEvent(
-            UserRegistrationId id,
+            UserRegistrationId userRegistrationId,
             string login,
             string password,
             string email,
@@ -24,7 +24,7 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations.Events
             DateTime registerDate
             )
         {
-            Id = id;
+            UserRegistrationId = userRegistrationId;
             Login = login;
             Password = password;
             Email = email;

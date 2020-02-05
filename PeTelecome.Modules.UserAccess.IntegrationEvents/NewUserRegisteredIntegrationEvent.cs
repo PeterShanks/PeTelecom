@@ -1,25 +1,27 @@
-﻿using PeTelecome.BuildingBlocks.Infrastructure.EventBus;
+﻿using PeTelecome.BuildingBlocks.Application.EventBus;
 using System;
 
 namespace PeTelecome.Modules.UserAccess.IntegrationEvents
 {
     public class NewUserRegisteredIntegrationEvent : IntegrationEvent
     {
+        public Guid DomainEventId { get; }
         public Guid UserId { get; }
         public string Login { get; }
         public string Email { get; }
         public string FirstName { get; }
         public string LastName { get; }
         public string Name { get; }
-        public NewUserRegisteredIntegrationEvent(Guid id,
-            DateTime occurredOn,
+        public NewUserRegisteredIntegrationEvent(
+            Guid domainEventId,
             Guid userId,
             string login,
             string email,
             string firstName,
             string lastName,
-            string name) : base(id, occurredOn)
+            string name)
         {
+            DomainEventId = domainEventId;
             UserId = userId;
             Login = login;
             Email = email;

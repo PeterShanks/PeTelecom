@@ -19,6 +19,17 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations
         public UserRegistrationStatus Status { get; private set; }
         public DateTime? ConfirmedDate { get; private set; }
 
+        public static UserRegistration RegisterNewUser(
+            string login,
+            string password,
+            string email,
+            string firstName,
+            string lastName,
+            IUsersCounter usersCounter)
+        {
+            return new UserRegistration(login, password, email, firstName, lastName, usersCounter);
+        }
+
         private UserRegistration(
             string login,
             string password,
@@ -28,6 +39,8 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations
             IUsersCounter usersCounter
             )
         {
+            CheckRule(new UserLoginMustBeUniqueRule(usersCounter, login));
+
             Id = new UserRegistrationId(Guid.NewGuid());
             Login = login;
             Password = password;

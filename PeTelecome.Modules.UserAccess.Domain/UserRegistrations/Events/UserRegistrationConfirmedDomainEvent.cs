@@ -4,11 +4,11 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations.Events
 {
     public class UserRegistrationConfirmedDomainEvent : DomainEventBase
     {
-        public UserRegistrationId Id { get; }
+        public UserRegistrationId UserRegistrationId { get; }
 
-        public UserRegistrationConfirmedDomainEvent(UserRegistrationId id)
+        public UserRegistrationConfirmedDomainEvent(UserRegistrationId userRegistrationId)
         {
-            Id = id;
+            UserRegistrationId = userRegistrationId;
         }
     }
 }

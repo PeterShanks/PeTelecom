@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PeTelecome.BuildingBlocks.Application\PeTelecome.BuildingBlocks.Application.csproj" />
-    <ProjectReference Include="..\PeTelecome.Modules.UserAccess.Domain\PeTelecome.Modules.UserAccess.Domain.csproj" />
+    <PackageReference Include="IdentityServer4" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <ProjectReference Include="..\PeTelecome.BuildingBlocks.Application\PeTelecome.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\PeTelecome.Modules.UserAccess.Domain\PeTelecome.Modules.UserAccess.Domain.csproj" />
+    <ProjectReference Include="..\PeTelecome.Modules.UserAccess.IntegrationEvents\PeTelecome.Modules.UserAccess.IntegrationEvents.csproj" />
   </ItemGroup>
 
 </Project>

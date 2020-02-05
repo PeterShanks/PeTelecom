@@ -4,17 +4,18 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations.Rules
 {
     public class UserLoginMustBeUniqueRule : IBusinessRule
     {
-        private readonly IUsersCounter _userCounter;
+        private readonly IUsersCounter _usersCounter;
         private readonly string _login;
 
-        internal UserLoginMustBeUniqueRule(IUsersCounter userCounter, string login)
+        internal UserLoginMustBeUniqueRule(IUsersCounter usersCounter, string login)
         {
-            _userCounter = userCounter;
+            _usersCounter = usersCounter;
             _login = login;
         }
 
         public string Message => "User Login must be unique";
 
-        public bool IsBroken() => _userCounter.CountUsersWithLogin(_login) > 0;
+        public bool IsBroken() =>
+            _usersCounter.CountUsersWithLogin(_login) > 0;
     }
 }

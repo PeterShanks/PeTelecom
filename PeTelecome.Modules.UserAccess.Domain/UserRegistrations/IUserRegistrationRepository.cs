@@ -6,5 +6,6 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations
     {
         Task AddAsync(UserRegistration userRegistration);
         Task<UserRegistration> GetByIdAsync(UserRegistrationId userRegistrationId);
+        Task<int> CountUsersWithLogin(string login);
     }
 }

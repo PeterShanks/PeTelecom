@@ -3,28 +3,28 @@ using System;
 
 namespace PeTelecome.Modules.UserAccess.Application.Configuration.Commands
 {
-    public class CommandBase<TResult> : ICommand<TResult>
+    public class InternalCommandBase<TResult> : ICommand<TResult>
     {
         public Guid Id { get; }
 
-        protected CommandBase() : this(Guid.NewGuid())
+        protected InternalCommandBase() : this(Guid.NewGuid())
         {
         }
 
-        private CommandBase(Guid guid)
+        private InternalCommandBase(Guid guid)
         {
             Id = guid;
         }
     }
 
-    public class CommandBase : ICommand
+    public class InternalCommandBase : ICommand
     {
         public Guid Id { get; }
 
-        protected CommandBase() : this(Guid.NewGuid())
+        protected InternalCommandBase() : this(Guid.NewGuid())
         {
         }
-        private CommandBase(Guid guid)
+        private InternalCommandBase(Guid guid)
         {
             Id = guid;
         }

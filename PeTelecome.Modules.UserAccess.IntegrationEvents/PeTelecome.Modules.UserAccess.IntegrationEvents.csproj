@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PeTelecome.BuildingBlocks.Application\PeTelecome.BuildingBlocks.Application.csproj" />
     <ProjectReference Include="..\PeTelecome.BuildingBlocks.Infrastructure\PeTelecome.BuildingBlocks.Infrastructure.csproj" />
   </ItemGroup>
 
