@@ -30,13 +30,22 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations
             return new UserRegistration(login, password, email, firstName, lastName, usersCounter);
         }
 
-        private UserRegistration(
+        public static UserRegistration Load(UserRegistrationId id, string login, string password, string email, string firstName,
+                              string lastName, string name, DateTime registerDate, UserRegistrationStatus status,
+                              DateTime? confirmedDate)
+        {
+            return new UserRegistration(id, login, password, email, firstName,
+                              lastName, name, registerDate, status,
+                              confirmedDate);
+        }
+
+        internal UserRegistration(
             string login,
             string password,
             string email,
             string firstName,
             string lastName,
-            IUsersCounter usersCounter
+            IUsersCounter usersCounter // TODO: Domain entities should not have any dependencies on them
             )
         {
             CheckRule(new UserLoginMustBeUniqueRule(usersCounter, login));
@@ -51,6 +60,22 @@ namespace PeTelecome.Modules.UserAccess.Domain.UserRegistrations
             Status = UserRegistrationStatus.WaitingForConfirmation;
 
             AddDomainEvent(new NewUserRegisteredDomainEvent(Id, Login, Password, Email, FirstName, LastName, RegisterDate));
+        }
+
+        internal UserRegistration(UserRegistrationId id, string login, string password, string email, string firstName,
+                              string lastName, string name, DateTime registerDate, UserRegistrationStatus status,
+                              DateTime? confirmedDate)
+        {
+            Id = id;
+            Login = login;
+            Password = password;
+            Email = email;
+            FirstName = firstName;
+            LastName = lastName;
+            Name = name;
+            RegisterDate = registerDate;
+            Status = status;
+            ConfirmedDate = confirmedDate;
         }
 
         public User CreateUser()

@@ -9,6 +9,6 @@ namespace PeTelecome.Modules.UserAccess.Application.Configuration.Commands
     public interface ICommandScheduler
     {
         Task EnqueueAsync(ICommand command);
-        Task EnqueueAsync<ICommand, TResult>(ICommand<TResult> command);
+        Task EnqueueAsync<TCommand, TResult>(ICommand<TResult> command);
     }
 }

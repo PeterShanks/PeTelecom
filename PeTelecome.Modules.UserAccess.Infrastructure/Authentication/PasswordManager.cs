@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PeTelecome.Modules.UserAccess.Application.Authentication;
+using System;
 using System.Security.Cryptography;
-using System.Text;
 
-namespace PeTelecome.Modules.UserAccess.Application.Authentication
+namespace PeTelecome.Modules.UserAccess.Infrastructure.Authentication
 {
-    public sealed class PasswordManager
+    public sealed class PasswordManager : IPasswordManager
     {
         private const int _saltByteSize = 24;
         private const int _hashByteSize = 24;
         private const int _hostingIterationsCount = 10101;
 
-        private static byte[] GenerateSalt()
+        private byte[] GenerateSalt()
         {
             using RNGCryptoServiceProvider saltGenerator = new RNGCryptoServiceProvider();
             byte[] salt = new byte[_saltByteSize];
@@ -19,13 +18,13 @@ namespace PeTelecome.Modules.UserAccess.Application.Authentication
             return salt;
         }
 
-        private static byte[] ComputeHash(string password, byte[] salt)
+        private byte[] ComputeHash(string password, byte[] salt)
         {
             using Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, salt, _hostingIterationsCount);
             return hashGenerator.GetBytes(_hashByteSize);
         }
 
-        public static string HashPassword(string password)
+        public string HashPassword(string password)
         {
             var salt = GenerateSalt();
             var hash = ComputeHash(password, salt);
@@ -37,7 +36,7 @@ namespace PeTelecome.Modules.UserAccess.Application.Authentication
             return Convert.ToBase64String(hashBytes);
         }
 
-        public static bool VerifyPassword(string hashedPassword, string password)
+        public bool VerifyPassword(string hashedPassword, string password)
         {
             var hashBytes = Convert.FromBase64String(hashedPassword);
             var salt = new byte[_saltByteSize];

@@ -56,5 +56,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Schemas" />
+    <Folder Include="Schema Objects\Schemas\Users" />
+    <Folder Include="Schema Objects\Schemas\Users\Programmability" />
+    <Folder Include="Schema Objects\Schemas\Users\Tables" />
+    <Folder Include="Schema Objects\Schemas\Users\Views" />
+    <Folder Include="Schema Objects\Database Level Objects" />
+    <Folder Include="Schema Objects\Database Level Objects\Security" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Schemas\Users\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\Users\Programmability\Types" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\User.Schema.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\UserRole.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\User.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\Permission.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\RolePermission.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\OutboxMessage.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\InternalCommand.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Tables\InboxMessage.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\CountUsersWithLogin.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUserByLogin.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="PeTelecome.Database.refactorlog" />
   </ItemGroup>
 </Project>

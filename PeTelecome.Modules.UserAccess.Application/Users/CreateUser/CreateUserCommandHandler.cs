@@ -2,9 +2,6 @@
 using PeTelecome.Modules.UserAccess.Application.Configuration.Commands;
 using PeTelecome.Modules.UserAccess.Domain.UserRegistrations;
 using PeTelecome.Modules.UserAccess.Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
