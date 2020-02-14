@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PeTelecom.BuildingBlocks.Application\PeTelecom.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\PeTelecom.BuildingBlocks.Infrastructure\PeTelecom.BuildingBlocks.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
