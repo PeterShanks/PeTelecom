@@ -1,66 +1,115 @@
-﻿using PeTelecom.BuildingBlocks.Domain;
-using PeTelecom.Modules.UserAccess.Domain.UserRegistrations;
-using PeTelecom.Modules.UserAccess.Domain.Users.Events;
+﻿using System;
 using System.Collections.Generic;
+using PeTelecom.BuildingBlocks.Domain;
+using PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Events;
+using PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Rules;
 
 namespace PeTelecom.Modules.UserAccess.Domain.Users
 {
     public class User : Entity, IAggregateRoot
     {
-        private List<UserRole> roles;
+        private readonly List<UserRole> _roles;
 
         public UserId Id { get; }
         public string Login { get; }
         public string Password { get; }
         public string Email { get; }
-        public bool IsActive { get; }
         public string FirstName { get; }
         public string LastName { get; }
         public string Name { get; }
-        public IReadOnlyCollection<UserRole> Roles => roles.AsReadOnly();
-        public static User CreateFromUserRegistration(UserRegistrationId userRegistrationId, string login, string password, string email,
-                     string firstName, string lastName, string name)
+        public DateTime RegisterDate { get; }
+        public UserRegistrationStatus Status { get; private set; }
+        public DateTime? ConfirmedDate { get; private set; }
+        public bool IsActive { get; }
+        public IReadOnlyCollection<UserRole> Roles => _roles.AsReadOnly();
+
+
+
+        public static User RegisterNewUser(
+            string login,
+            string password,
+            string email,
+            string firstName,
+            string lastName,
+            IUsersCounter usersCounter)
         {
-            return new User(userRegistrationId, login, password, email, firstName, lastName, name);
+            return new User(login, password, email, firstName, lastName, usersCounter);
         }
 
-        public static User Load(UserId id, string login, string password, string email, bool isActive, string firstName, string lastName, string name, List<UserRole> userRoles)
+        public static User Load(UserId id, string login, string password, string email, string firstName,
+                              string lastName, string name, bool isActive, List<UserRole> roles, DateTime registerDate, UserRegistrationStatus status,
+                              DateTime? confirmedDate)
         {
-            return new User(id, login, password, email, isActive, firstName, lastName, name, userRoles);
+            return new User(id, login, password, email, firstName,
+                              lastName, name, isActive, roles, registerDate, status,
+                              confirmedDate);
         }
 
-        private User(UserRegistrationId userRegistrationId, string login, string password, string email,
-                     string firstName, string lastName, string name)
+        internal User(
+            string login,
+            string password,
+            string email,
+            string firstName,
+            string lastName,
+            IUsersCounter usersCounter // TODO: Domain entities should not have any dependencies on them
+            )
         {
-            Id = new UserId(userRegistrationId.Value);
+            CheckRule(new UserLoginMustBeUniqueRule(usersCounter, login));
+
+            Id = new UserId(Guid.NewGuid());
             Login = login;
             Password = password;
             Email = email;
-            IsActive = true;
             FirstName = firstName;
             LastName = lastName;
-            Name = name;
-
-            roles = new List<UserRole>
+            Name = $"{firstName} {lastName}";
+            RegisterDate = DateTime.UtcNow;
+            Status = UserRegistrationStatus.WaitingForConfirmation;
+            _roles = new List<UserRole>
             {
-                UserRole.Client
+                new UserRole(Role.Client)
             };
+            IsActive = true;
 
-            AddDomainEvent(new UserCreatedDomainEvent(Id));
+            AddDomainEvent(new NewUserRegisteredDomainEvent(Id, Login, Password, Email, Name, FirstName, LastName, RegisterDate));
         }
 
-        private User(UserId id, string login, string password, string email, bool isActive, string firstName, string lastName, string name, List<UserRole> userRoles)
+        internal User(UserId id, string login, string password, string email, string firstName,
+                              string lastName, string name, bool isActive, List<UserRole> roles, DateTime registerDate, UserRegistrationStatus status,
+                              DateTime? confirmedDate)
         {
             Id = id;
             Login = login;
             Password = password;
             Email = email;
-            IsActive = isActive;
             FirstName = firstName;
             LastName = lastName;
             Name = name;
-            roles = userRoles;
+            IsActive = isActive;
+            RegisterDate = registerDate;
+            Status = status;
+            ConfirmedDate = confirmedDate;
+            _roles = roles;
         }
 
+        public void Confirm()
+        {
+            CheckRule(new UserRegistrationCannotBeConfirmedAfterExpirationRule(Status));
+            CheckRule(new UserRegistrationCannotBeExpiredMoreThanOnceRule(Status));
+
+            Status = UserRegistrationStatus.Confirmed;
+            ConfirmedDate = DateTime.UtcNow;
+
+            AddDomainEvent(new UserRegistrationConfirmedDomainEvent(Id));
+        }
+
+        public void Expire()
+        {
+            CheckRule(new UserRegistrationCannotBeExpiredMoreThanOnceRule(Status));
+
+            Status = UserRegistrationStatus.Expired;
+
+            AddDomainEvent(new UserRegistrationExpiredDomainEvent(Id));
+        }
     }
 }

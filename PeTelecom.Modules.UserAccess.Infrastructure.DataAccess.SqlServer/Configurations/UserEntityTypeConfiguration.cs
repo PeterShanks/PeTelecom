@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PeTelecom.Modules.UserAccess.Domain.Users;
 using System;
-using User = PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Models.User;
+using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Configurations
 {
@@ -15,24 +14,23 @@ namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Confi
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Login).HasColumnName("Login");
             builder.Property(x => x.Email).HasColumnName("Email");
-            builder.Property(x => x.Password).HasColumnName("Password");
-            builder.Property(x => x.IsActive).HasColumnName("IsActive");
-            builder.Property(x => x.FirstName).HasColumnName("FirstName");
             builder.Property(x => x.LastName).HasColumnName("LastName");
+            builder.Property(x => x.FirstName).HasColumnName("FirstName");
             builder.Property(x => x.Name).HasColumnName("Name");
+            builder.Property(x => x.Password).HasColumnName("Password");
+            builder.Property(x => x.RegisterDate).HasColumnName("RegisterDate");
+            builder.Property(x => x.Status).HasColumnName("Status");
             builder.Property(x => x.ConfirmedDate).HasColumnName("ConfirmedDate");
+            builder.Property(x => x.IsActive).HasColumnName("IsActive");
 
-
-            builder.OwnsMany<UserRole>(x => x.Roles, roleBuilder =>
+            builder.OwnsMany<UserRole>("_roles", roleBuilder =>
             {
-                roleBuilder.WithOwner().HasForeignKey("UserId");
                 roleBuilder.ToTable("UserRole", "User");
+                roleBuilder.WithOwner().HasForeignKey("UserId");
                 roleBuilder.Property(x => x.Role).HasColumnName("RoleCode");
-                roleBuilder.Property<Guid>("UserId").HasColumnName("UserId");
-                roleBuilder.HasKey("UserId", "Role");
+                roleBuilder.Property<UserId>("UserId");
+                roleBuilder.HasKey("UserId", "RoleCode");
             });
-
-            builder.HasQueryFilter(x => x.ConfirmedDate != null);
         }
     }
 }

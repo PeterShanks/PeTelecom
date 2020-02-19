@@ -1,6 +1,6 @@
 ﻿using PeTelecom.BuildingBlocks.Domain;
 
-namespace PeTelecom.Modules.UserAccess.Domain.Users.Events
+namespace PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Events
 {
     public class UserCreatedDomainEvent: DomainEventBase
     {

@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [User].[GetUserByLogin]
 	@Login NVARCHAR(100) 
 AS
+BEGIN
 	SELECT 
 		U.Id,
 		U.Email,
@@ -12,4 +13,4 @@ AS
 		U.[Password]
 	FROM [User].[User] AS U
 	WHERE U.[Login] = @Login
-RETURN 0
+END

@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using PeTelecom.BuildingBlocks.Infrastructure.Outbox;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Configurations
 {
@@ -14,6 +11,7 @@ namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Confi
             builder.ToTable("OutboxMessage", "User");
 
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).ValueGeneratedNever();
             builder.Property(x => x.OccurredOn).HasColumnName("OccurredOn");
             builder.Property(x => x.Type).HasColumnName("Type");
             builder.Property(x => x.Data).HasColumnName("Data");

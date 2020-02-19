@@ -1,7 +1,6 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Contracts;
-using System;
+﻿using System;
 
-namespace PeTelecom.Modules.UserAccess.Application.Configuration.Commands
+namespace PeTelecom.Modules.UserAccess.Application.Contracts
 {
     public class CommandBase<TResult> : ICommand<TResult>
     {

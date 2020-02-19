@@ -1,4 +1,4 @@
-﻿namespace PeTelecom.Modules.UserAccess.Domain.UserRegistrations
+﻿namespace PeTelecom.Modules.UserAccess.Domain.Users
 {
     public enum UserRegistrationStatus
     {

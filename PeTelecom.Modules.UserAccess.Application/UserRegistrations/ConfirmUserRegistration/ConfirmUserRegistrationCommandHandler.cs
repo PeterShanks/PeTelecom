@@ -1,23 +1,23 @@
 ﻿using MediatR;
 using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
-using PeTelecom.Modules.UserAccess.Domain.UserRegistrations;
 using System.Threading;
 using System.Threading.Tasks;
+using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.ConfirmUserRegistration
 {
     public class ConfirmUserRegistrationCommandHandler : ICommandHandler<ConfirmUserRegistrationCommand>
     {
-        private readonly IUserRegistrationRepository _userRegistrationRepository;
+        private readonly IUserRepository _userRepository;
 
-        public ConfirmUserRegistrationCommandHandler(IUserRegistrationRepository userRegistrationRepository)
+        public ConfirmUserRegistrationCommandHandler(IUserRepository userRepository)
         {
-            _userRegistrationRepository = userRegistrationRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<Unit> Handle(ConfirmUserRegistrationCommand request, CancellationToken cancellationToken)
         {
-            var userRegistration = await _userRegistrationRepository.GetByIdAsync(request.UserRegistrationId);
+            var userRegistration = await _userRepository.GetByIdAsync(request.UserId);
 
             userRegistration.Confirm();
 

@@ -21,7 +21,7 @@ namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.RegisterNew
         {
             _eventBus.Publish(new NewUserRegisteredIntegrationEvent(
                 notification.Id,
-                notification.DomainEvent.UserRegistrationId.Value,
+                notification.DomainEvent.UserId.Value,
                 notification.DomainEvent.Login,
                 notification.DomainEvent.Email,
                 notification.DomainEvent.FirstName,

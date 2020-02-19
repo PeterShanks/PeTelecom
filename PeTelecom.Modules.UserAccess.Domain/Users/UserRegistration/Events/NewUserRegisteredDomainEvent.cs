@@ -1,11 +1,11 @@
-﻿using PeTelecom.BuildingBlocks.Domain;
-using System;
+﻿using System;
+using PeTelecom.BuildingBlocks.Domain;
 
-namespace PeTelecom.Modules.UserAccess.Domain.UserRegistrations.Events
+namespace PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Events
 {
     public class NewUserRegisteredDomainEvent: DomainEventBase
     {
-        public UserRegistrationId UserRegistrationId { get; }
+        public UserId UserId { get; }
         public string Login { get; }
         public string Password { get; }
         public string Email { get; }
@@ -15,22 +15,23 @@ namespace PeTelecom.Modules.UserAccess.Domain.UserRegistrations.Events
         public DateTime RegisterDate { get; }
 
         public NewUserRegisteredDomainEvent(
-            UserRegistrationId userRegistrationId,
+            UserId userId,
             string login,
             string password,
             string email,
+            string name,
             string firstName,
             string lastName,
-            DateTime registerDate
-            )
+            DateTime registerDate)
         {
-            UserRegistrationId = userRegistrationId;
+            UserId = userId;
             Login = login;
             Password = password;
             Email = email;
             FirstName = firstName;
             LastName = lastName;
             RegisterDate = registerDate;
+            Name = name;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.RegisterNew
         public async Task Handle(NewUserRegisteredNotification notification, CancellationToken cancellationToken)
         {
             await _commandScheduler.EnqueueAsync(new SendUserRegistrationConfirmationEmailCommand(
-                notification.DomainEvent.UserRegistrationId,
+                notification.DomainEvent.UserId,
                 notification.DomainEvent.Email));
         }
     }

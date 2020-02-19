@@ -1,6 +1,6 @@
 ﻿using PeTelecom.BuildingBlocks.Domain;
 
-namespace PeTelecom.Modules.UserAccess.Domain.UserRegistrations.Rules
+namespace PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Rules
 {
     public class UserRegistrationCannotBeExpiredMoreThanOnceRule : IBusinessRule
     {

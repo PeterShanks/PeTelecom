@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>PeTelecom.Database</Name>
+    <Name>PeTelecom</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{f7550b85-79b8-464b-a0c7-56e8ae15b1c1}</ProjectGuid>
@@ -22,7 +22,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <TargetDatabase>PeTelecom.Database</TargetDatabase>
+    <TargetDatabase>PeTelecom</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -82,8 +82,9 @@
     <Build Include="Schema Objects\Schemas\Users\Tables\InboxMessage.sql" />
     <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\CountUsersWithLogin.sql" />
     <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUserByLogin.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUserPermissions.sql" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="PeTelecom.Database.refactorlog" />
+    <RefactorLog Include="PeTelecom.refactorlog" />
   </ItemGroup>
 </Project>

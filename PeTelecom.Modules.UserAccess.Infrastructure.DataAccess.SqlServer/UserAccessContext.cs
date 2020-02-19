@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PeTelecom.BuildingBlocks.Infrastructure.InternalCommands;
-using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Models;
+using PeTelecom.BuildingBlocks.Infrastructure.Outbox;
+using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer
 {
@@ -9,7 +10,6 @@ namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer
     {
         private readonly ILoggerFactory _loggerFactory;
 
-        public DbSet<UserRegistration> UserRegistrations { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<OutboxMessage> OutboxMessages { get; set; }
         public DbSet<InternalCommand> InternalCommands { get; set; }

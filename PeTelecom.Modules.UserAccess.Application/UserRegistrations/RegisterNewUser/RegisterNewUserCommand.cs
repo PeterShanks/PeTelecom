@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PeTelecom.Modules.UserAccess.Application.Contracts;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.RegisterNewUser
 {

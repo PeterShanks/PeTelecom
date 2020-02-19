@@ -1,18 +1,19 @@
 ﻿using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
-using PeTelecom.Modules.UserAccess.Domain.UserRegistrations;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PeTelecom.Modules.UserAccess.Application.Contracts;
+using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.ConfirmUserRegistration
 {
     public class ConfirmUserRegistrationCommand: CommandBase
     {
-        public UserRegistrationId UserRegistrationId { get; }
+        public UserId UserId { get; }
 
-        public ConfirmUserRegistrationCommand(UserRegistrationId userRegistrationId)
+        public ConfirmUserRegistrationCommand(UserId userId)
         {
-            UserRegistrationId = userRegistrationId;
+            UserId = userId;
         }
     }
 }
