@@ -1,5 +1,5 @@
-﻿using System;
-using PeTelecom.BuildingBlocks.Domain;
+﻿using PeTelecom.BuildingBlocks.Domain;
+using System;
 
 namespace PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Events
 {

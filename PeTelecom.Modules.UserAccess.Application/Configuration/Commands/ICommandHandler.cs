@@ -1,8 +1,5 @@
 ﻿using MediatR;
 using PeTelecom.Modules.UserAccess.Application.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PeTelecom.Modules.UserAccess.Application.Configuration.Commands
 {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Configurations

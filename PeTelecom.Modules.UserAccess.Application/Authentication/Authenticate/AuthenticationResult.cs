@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PeTelecom.Modules.UserAccess.Application.Authentication.Authenticate
+﻿namespace PeTelecom.Modules.UserAccess.Application.Authentication.Authenticate
 {
     public class AuthenticationResult
     {

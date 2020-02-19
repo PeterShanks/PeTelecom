@@ -1,6 +1,6 @@
-﻿using System;
-using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
+﻿using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
 using SimpleInjector;
+using System;
 
 namespace PeTelecom.BuildingBlocks.DependencyInjection
 {

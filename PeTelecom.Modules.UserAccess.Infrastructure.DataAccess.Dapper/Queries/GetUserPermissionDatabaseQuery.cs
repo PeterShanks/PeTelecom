@@ -1,10 +1,10 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Authorization.GetUserPermissions;
+﻿using Dapper;
+using PeTelecom.Modules.UserAccess.Application.Authorization.GetUserPermissions;
+using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
-using Dapper;
-using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Queries
 {

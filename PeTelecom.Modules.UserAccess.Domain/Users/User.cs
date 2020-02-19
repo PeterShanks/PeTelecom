@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using PeTelecom.BuildingBlocks.Domain;
+﻿using PeTelecom.BuildingBlocks.Domain;
 using PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Events;
 using PeTelecom.Modules.UserAccess.Domain.Users.UserRegistration.Rules;
+using System;
+using System.Collections.Generic;
 
 namespace PeTelecom.Modules.UserAccess.Domain.Users
 {

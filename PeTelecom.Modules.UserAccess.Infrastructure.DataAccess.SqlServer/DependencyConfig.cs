@@ -1,7 +1,4 @@
 ﻿using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer
 {

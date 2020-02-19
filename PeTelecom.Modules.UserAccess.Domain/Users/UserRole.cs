@@ -1,5 +1,4 @@
-﻿using PeTelecom.BuildingBlocks.Domain;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PeTelecom.Modules.UserAccess.Domain.Users

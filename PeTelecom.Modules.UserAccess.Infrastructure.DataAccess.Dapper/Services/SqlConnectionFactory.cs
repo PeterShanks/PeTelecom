@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using Dapper;
-using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Services
 {

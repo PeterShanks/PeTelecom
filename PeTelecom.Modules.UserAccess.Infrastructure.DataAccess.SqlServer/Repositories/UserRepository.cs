@@ -1,8 +1,6 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PeTelecom.Modules.UserAccess.Domain.Users;
+using System.Threading.Tasks;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Repositories
 {

@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PeTelecom.BuildingBlocks.Infrastructure.InternalCommands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.Configurations
 {

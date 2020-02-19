@@ -1,9 +1,6 @@
 ﻿using MediatR;
 using PeTelecom.BuildingBlocks.Application.EventBus;
 using PeTelecom.Modules.UserAccess.IntegrationEvents;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

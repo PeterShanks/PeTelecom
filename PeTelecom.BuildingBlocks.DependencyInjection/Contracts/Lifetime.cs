@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PeTelecom.BuildingBlocks.DependencyInjection.Contracts
+﻿namespace PeTelecom.BuildingBlocks.DependencyInjection.Contracts
 {
     public enum Lifetime
     {

@@ -1,11 +1,4 @@
-﻿using IdentityServer4.Models;
-using IdentityServer4.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PeTelecom.Modules.UserAccess.Application.IdentityServer
+﻿namespace PeTelecom.Modules.UserAccess.Application.IdentityServer
 {
     //public class ProfileService : IProfileService
     //{

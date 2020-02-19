@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using PeTelecom.Modules.UserAccess.Application.Authentication.Authenticate;
 using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
+using System.Data;
+using System.Threading.Tasks;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Queries
 {

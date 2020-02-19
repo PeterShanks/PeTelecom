@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
+using SimpleInjector;
+using System;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
-using SimpleInjector;
 
 namespace PeTelecom.BuildingBlocks.DependencyInjection
 {

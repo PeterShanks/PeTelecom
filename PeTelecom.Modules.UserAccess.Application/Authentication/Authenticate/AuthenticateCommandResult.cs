@@ -1,8 +1,5 @@
-﻿using MediatR;
-using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
+﻿using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

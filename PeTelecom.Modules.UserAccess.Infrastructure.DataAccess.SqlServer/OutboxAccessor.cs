@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PeTelecom.BuildingBlocks.Infrastructure.Outbox;
 using System.Threading.Tasks;
-using PeTelecom.BuildingBlocks.Infrastructure.Outbox;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer
 {

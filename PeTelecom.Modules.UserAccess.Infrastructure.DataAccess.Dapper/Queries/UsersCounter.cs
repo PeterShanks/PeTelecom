@@ -1,7 +1,7 @@
-﻿using System.Data;
-using Dapper;
+﻿using Dapper;
 using PeTelecom.Modules.UserAccess.Domain.Users;
 using PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Interfaces;
+using System.Data;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.Queries
 {

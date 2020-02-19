@@ -1,12 +1,9 @@
 ﻿using MediatR;
 using PeTelecom.Modules.UserAccess.Application.Authentication;
 using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using PeTelecom.Modules.UserAccess.Domain.Users;
 using System.Threading;
 using System.Threading.Tasks;
-using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.RegisterNewUser
 {
