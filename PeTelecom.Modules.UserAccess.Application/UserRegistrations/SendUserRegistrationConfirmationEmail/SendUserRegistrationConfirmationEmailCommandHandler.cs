@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using PeTelecom.BuildingBlocks.Application.Emails;
 using PeTelecom.BuildingBlocks.Application.Hosting;
-using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
 using System.Threading;
 using System.Threading.Tasks;
+using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.SendUserRegistrationConfirmationEmail
 {
@@ -22,7 +22,7 @@ namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.SendUserReg
         {
             var emailMessage = new EmailMessage(request.Email, "PeTelecom - Please confirm registration",
                 "This should be link to confirmation page. For now, please execute HTTP request " +
-                $"{_hostingService.GenerateUserRegistrationConfirmationURL()}");
+                $"{_hostingService.GenerateUserRegistrationConfirmationUrl()}");
 
             await _emailSender.SendEmailAsync(emailMessage);
 

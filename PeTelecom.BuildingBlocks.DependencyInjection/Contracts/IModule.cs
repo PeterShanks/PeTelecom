@@ -1,4 +1,6 @@
-﻿namespace PeTelecom.BuildingBlocks.DependencyInjection.Contracts
+﻿using System.Threading.Tasks;
+
+namespace PeTelecom.BuildingBlocks.DependencyInjection.Contracts
 {
     public interface IModule
     {

@@ -1,10 +1,13 @@
 ﻿using PeTelecom.BuildingBlocks.DependencyInjection.Contracts;
 using SimpleInjector;
 using System;
+using System.Collections.Generic;
+using System.Reflection;
+using PeTelecom.BuildingBlocks.DependencyInjection.Helpers;
 
 namespace PeTelecom.BuildingBlocks.DependencyInjection
 {
-    internal class ModuleRegistrar : IModuleRegistrar
+    public class ModuleRegistrar : IModuleRegistrar
     {
         private readonly Container _container;
 
@@ -12,17 +15,43 @@ namespace PeTelecom.BuildingBlocks.DependencyInjection
         {
             _container = container;
         }
-
-        public void RegisterType<TFrom, TTo>(Lifetime lifetime) where TFrom : class where TTo : class, TFrom
+        public IModuleRegistrar Register<TFrom, TTo>(Lifetime lifetime) where TFrom : class where TTo : class, TFrom
         {
-            Lifestyle lifestyle = lifetime switch
+            _container.Register<TFrom, TTo>(lifetime.ToLifeStyle());
+
+            return this;
+        }
+
+        public IModuleRegistrar Register<T>(Func<T> instanceCreator, Lifetime lifetime) where T: class
+        {
+            _container.Register(instanceCreator, lifetime.ToLifeStyle());
+
+            return this;
+        }
+
+        public IModuleRegistrar Register(Type openGenericServiceType, Assembly assembly, Lifetime lifetime)
+        {
+            _container.Register(openGenericServiceType, assembly, lifetime.ToLifeStyle());
+
+            return this;
+        }
+
+        public IModuleRegistrar Register<T>(Lifetime lifetime)
+            where T : class
+        {
+            _container.Register<T>(Lifestyle.Scoped);
+            return this;
+        }
+
+        public IModuleRegistrar Register(IEnumerable<Registry> registries, Lifetime lifetime)
+        {
+            var lifestyle = lifetime.ToLifeStyle();
+            foreach (var registry in registries)
             {
-                Lifetime.Scoped => Lifestyle.Scoped,
-                Lifetime.Singleton => Lifestyle.Singleton,
-                Lifetime.Transient => Lifestyle.Transient,
-                _ => throw new ArgumentException("Unsupported lifetime scope", nameof(Lifetime)),
-            };
-            _container.Register<TFrom, TTo>(lifestyle);
+                _container.Register(registry.Service, registry.Implementation, lifestyle);
+            }
+
+            return this;
         }
     }
 }

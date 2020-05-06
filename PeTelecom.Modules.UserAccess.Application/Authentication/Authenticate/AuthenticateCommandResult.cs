@@ -1,7 +1,7 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
 
 namespace PeTelecom.Modules.UserAccess.Application.Authentication.Authenticate
 {

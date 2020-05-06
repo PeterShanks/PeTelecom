@@ -5,14 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="EventBus\**" />
+    <EmbeddedResource Remove="EventBus\**" />
+    <None Remove="EventBus\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EventBus\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\PeTelecom.BuildingBlocks.DependencyInjection\PeTelecom.BuildingBlocks.DependencyInjection.csproj" />
     <ProjectReference Include="..\PeTelecom.BuildingBlocks.Domain\PeTelecom.BuildingBlocks.Domain.csproj" />
   </ItemGroup>
 

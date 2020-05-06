@@ -29,9 +29,15 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PeTelecom", "PeTelecom.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer", "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer\PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer.csproj", "{0CFB474D-08E3-44BD-9AB4-E9CFDA2804C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper", "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper\PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.csproj", "{0B50F31C-B6ED-4715-8530-A4559D043994}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper", "PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper\PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.Dapper.csproj", "{0B50F31C-B6ED-4715-8530-A4559D043994}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeTelecom.BuildingBlocks.DependencyInjection", "PeTelecom.BuildingBlocks.DependencyInjection\PeTelecom.BuildingBlocks.DependencyInjection.csproj", "{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeTelecom.BuildingBlocks.DependencyInjection", "PeTelecom.BuildingBlocks.DependencyInjection\PeTelecom.BuildingBlocks.DependencyInjection.csproj", "{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{79A57A6D-8DC3-4012-B011-82469F22AF57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeTelecom.API", "PeTelecom.API\PeTelecom.API.csproj", "{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeTelecom.Modules.UserAccess.Infrastructure.Jobs", "PeTelecom.Modules.UserAccess.Infrastructure.Jobs\PeTelecom.Modules.UserAccess.Infrastructure.Jobs.csproj", "{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +91,14 @@ Global
 		{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +116,8 @@ Global
 		{0CFB474D-08E3-44BD-9AB4-E9CFDA2804C3} = {D9A7F05F-67AF-40BB-BCF4-A56181C7F636}
 		{0B50F31C-B6ED-4715-8530-A4559D043994} = {D9A7F05F-67AF-40BB-BCF4-A56181C7F636}
 		{9E9B3BE8-2F9B-4FBC-A226-2CA89EC7DB02} = {3A1500D7-BB0E-43A7-B4F4-A84AB6FD03EE}
+		{D4EB3C3A-77DE-40E4-A45D-266BB9FE42DF} = {79A57A6D-8DC3-4012-B011-82469F22AF57}
+		{9A4FB385-3C4E-4B5D-B16F-3B80F9250AFF} = {D9A7F05F-67AF-40BB-BCF4-A56181C7F636}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E57472-C11E-45FF-B735-A8781889BE34}

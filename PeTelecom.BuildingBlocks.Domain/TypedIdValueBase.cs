@@ -43,7 +43,7 @@ namespace PeTelecom.BuildingBlocks.Domain
             if (obj1 != null)
                 return obj1.Equals(obj2);
 
-            return ReferenceEquals(obj1, obj2);
+            return ReferenceEquals(null, obj2);
         }
 
         public static bool operator != (TypedIdValueBase obj1, TypedIdValueBase obj2)

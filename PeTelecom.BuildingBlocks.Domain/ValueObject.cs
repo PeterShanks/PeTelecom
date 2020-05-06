@@ -76,7 +76,7 @@ namespace PeTelecom.BuildingBlocks.Domain
 
     //        _properties = GetType()
     //            .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-    //            .Where(p => p.GetCustomAttribute<IgnoreMemeberAttribute>() == null)
+    //            .Where(p => p.GetCustomAttribute<IgnoreMemberAttribute>() == null)
     //            .ToList();
 
     //        return _properties;
@@ -89,7 +89,7 @@ namespace PeTelecom.BuildingBlocks.Domain
 
     //        _fields = GetType()
     //            .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-    //            .Where(p => p.GetCustomAttribute<IgnoreMemeberAttribute>() == null)
+    //            .Where(p => p.GetCustomAttribute<IgnoreMemberAttribute>() == null)
     //            .ToList();
 
     //        return _fields;

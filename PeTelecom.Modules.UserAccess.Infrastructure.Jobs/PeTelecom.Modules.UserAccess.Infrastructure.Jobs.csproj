@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PeTelecom.BuildingBlocks.Application\PeTelecom.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\PeTelecom.BuildingBlocks.DependencyInjection\PeTelecom.BuildingBlocks.DependencyInjection.csproj" />
+    <ProjectReference Include="..\PeTelecom.Modules.UserAccess.Application\PeTelecom.Modules.UserAccess.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Setup\" />
+  </ItemGroup>
+
+</Project>

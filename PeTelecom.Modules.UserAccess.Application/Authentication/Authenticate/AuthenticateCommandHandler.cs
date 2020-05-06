@@ -1,25 +1,25 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
+using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
 
 namespace PeTelecom.Modules.UserAccess.Application.Authentication.Authenticate
 {
     public class AuthenticateCommandHandler : ICommandHandler<AuthenticateCommand, AuthenticationResult>
     {
-        private readonly IGetUserLoginDatabaseQuery _authenticateQuery;
+        private readonly IUserDatabaseQueries _authenticateQueries;
         private readonly IPasswordManager _passwordManager;
 
-        public AuthenticateCommandHandler(IGetUserLoginDatabaseQuery authenticateQuery, IPasswordManager passwordManager)
+        public AuthenticateCommandHandler(IUserDatabaseQueries authenticateQueries, IPasswordManager passwordManager)
         {
-            _authenticateQuery = authenticateQuery;
+            _authenticateQueries = authenticateQueries;
             _passwordManager = passwordManager;
         }
 
         public async Task<AuthenticationResult> Handle(AuthenticateCommand request, CancellationToken cancellationToken)
         {
-            UserDto user = await _authenticateQuery.GetUserByLoginAsync(request.Login);
+            UserDto user = await _authenticateQueries.GetUserByLoginAsync(request.Login);
 
             if (user == null)
                 return new AuthenticationResult("Incorrect login or password");

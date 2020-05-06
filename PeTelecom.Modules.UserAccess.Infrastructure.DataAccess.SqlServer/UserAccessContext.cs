@@ -21,8 +21,7 @@ namespace PeTelecom.Modules.UserAccess.Infrastructure.DataAccess.SqlServer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // TODO: Does this line has effect?
-            //optionsBuilder.UseLoggerFactory(_loggerFactory);
+            optionsBuilder.UseLoggerFactory(_loggerFactory);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

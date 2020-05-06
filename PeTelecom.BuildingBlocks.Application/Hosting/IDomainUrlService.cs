@@ -2,6 +2,6 @@
 {
     public interface IDomainUrlService
     {
-        string GenerateUserRegistrationConfirmationURL();
+        string GenerateUserRegistrationConfirmationUrl();
     }
 }

@@ -83,8 +83,16 @@
     <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\CountUsersWithLogin.sql" />
     <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUserByLogin.sql" />
     <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUserPermissions.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUnprocessedInboxMessages.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\UpdateInboxMessageProcessDate.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUnprocessedInternalCommands.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\GetUnprocessedOutboxMessages.sql" />
+    <Build Include="Schema Objects\Schemas\Users\Programmability\Stored Procedures\UpdateOutboxMessageProcessDate.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PeTelecom.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PeTelecom.publish.xml" />
   </ItemGroup>
 </Project>

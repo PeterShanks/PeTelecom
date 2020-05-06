@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using PeTelecom.Modules.UserAccess.Application.Configuration.Commands;
 using PeTelecom.Modules.UserAccess.Application.UserRegistrations.SendUserRegistrationConfirmationEmail;
 using System.Threading;
 using System.Threading.Tasks;
+using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.RegisterNewUser
 {

@@ -1,6 +1,7 @@
 ﻿using PeTelecom.Modules.UserAccess.Application.Contracts;
 using System;
 using System.Collections.Generic;
+using PeTelecom.BuildingBlocks.Application.Configuration.Queries;
 
 namespace PeTelecom.Modules.UserAccess.Application.Authorization.GetUserPermissions
 {
@@ -8,7 +9,7 @@ namespace PeTelecom.Modules.UserAccess.Application.Authorization.GetUserPermissi
     {
         public Guid UserId { get; }
 
-        protected GetUserPermissionQuery(Guid userId)
+        public GetUserPermissionQuery(Guid userId)
         {
             UserId = userId;
         }

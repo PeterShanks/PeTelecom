@@ -1,23 +1,41 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Contracts;
+﻿using MediatR;
+using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
+using PeTelecom.BuildingBlocks.Application.Configuration.Queries;
+using PeTelecom.BuildingBlocks.Infrastructure;
+using PeTelecom.Modules.UserAccess.Application.Contracts;
 using System.Threading.Tasks;
 
 namespace PeTelecom.Modules.UserAccess.Infrastructure
 {
     public class UserAccessModule : IUserAccessModule
     {
-        public async Task<TResult> ExecuteCommandAsync<TResult>(ICommand<TResult> command)
+        private readonly ICommandExecutor _commandExecutor;
+        private readonly IMediator _mediator;
+        private readonly IScopeService _scope;
+
+        public UserAccessModule(ICommandExecutor commandExecutor, IMediator mediator, IScopeService scope)
         {
-            throw new System.NotImplementedException();
+            _commandExecutor = commandExecutor;
+            _mediator = mediator;
+            _scope = scope;
         }
 
-        public async Task ExecuteCommandAsync(ICommand command)
+        public Task<TResult> ExecuteCommandAsync<TResult>(ICommand<TResult> command)
         {
-            throw new System.NotImplementedException();
+            return _commandExecutor.Execute(command);
         }
 
-        public async Task<TResult> ExecuteQueryAsync<TResult>(IQuery<TResult> query)
+        public Task ExecuteCommandAsync(ICommand command)
         {
-            throw new System.NotImplementedException();
+            return _commandExecutor.Execute(command);
+        }
+
+        public Task<TResult> ExecuteQueryAsync<TResult>(IQuery<TResult> query)
+        {
+            using (_scope.BeginScope())
+            {
+                return _mediator.Send(query);
+            }
         }
     }
 }

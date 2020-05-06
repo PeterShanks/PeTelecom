@@ -1,4 +1,4 @@
-﻿using PeTelecom.Modules.UserAccess.Application.Contracts;
+﻿using PeTelecom.BuildingBlocks.Application.Configuration.Commands;
 using PeTelecom.Modules.UserAccess.Domain.Users;
 
 namespace PeTelecom.Modules.UserAccess.Application.UserRegistrations.ConfirmUserRegistration
